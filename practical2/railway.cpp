@@ -14,27 +14,21 @@ private:
     static int trainCount;
 
 public:
-    // Default Constructor
     Train()
     {
         trainNumber = 0;
-
         trainName[0] = 0;
         source[0] = 0;
         destination[0] = 0;
         trainTime[0] = 0;
-
         trainCount++;
     }
 
-    // Parameterized Constructor
     Train(int number, const char name[], const char src[],
           const char dest[], const char time[])
     {
         trainNumber = number;
-
         int i;
-
         for (i = 0; name[i] != 0 && i < 49; i++)
         {
             trainName[i] = name[i];
@@ -58,17 +52,13 @@ public:
             trainTime[i] = time[i];
         }
         trainTime[i] = 0;
-
         trainCount++;
     }
 
-    // Destructor
     ~Train()
     {
         trainCount--;
     }
-
-    // Setter Functions
 
     void setTrainNumber(int number)
     {
@@ -83,53 +73,43 @@ public:
         {
             trainName[i] = name[i];
         }
-
         trainName[i] = 0;
     }
 
     void setSource(const char src[])
     {
         int i;
-
         for (i = 0; src[i] != 0 && i < 49; i++)
         {
             source[i] = src[i];
         }
-
         source[i] = 0;
     }
 
     void setDestination(const char dest[])
     {
         int i;
-
         for (i = 0; dest[i] != 0 && i < 49; i++)
         {
             destination[i] = dest[i];
         }
-
         destination[i] = 0;
     }
 
     void setTrainTime(const char time[])
     {
         int i;
-
         for (i = 0; time[i] != 0 && i < 19; i++)
         {
             trainTime[i] = time[i];
         }
-
         trainTime[i] = 0;
     }
-
-    // Getter Functions
 
     int getTrainNumber()
     {
         return trainNumber;
     }
-
     char *getTrainName()
     {
         return trainName;
@@ -150,8 +130,6 @@ public:
         return trainTime;
     }
 
-    // Input Train Details
-
     void inputTrainDetails()
     {
         cout << "\nEnter Train Number: ";
@@ -171,8 +149,6 @@ public:
         cin.getline(trainTime, 20);
     }
 
-    // Display Train Details
-
     void displayTrainDetails()
     {
         cout << "\nTrain Number : " << trainNumber;
@@ -183,20 +159,13 @@ public:
         cout << "\n";
     }
 
-    // Static Function
-
     static int getTrainCount()
     {
         return trainCount;
     }
 };
 
-// Initialize Static Member
-
 int Train::trainCount = 0;
-
-// Railway System Class
-
 class RailwaySystem
 {
 private:
@@ -204,14 +173,10 @@ private:
     int totalTrains;
 
 public:
-    // Constructor
-
     RailwaySystem()
     {
         totalTrains = 0;
     }
-
-    // Add Train
 
     void addTrain()
     {
@@ -220,11 +185,8 @@ public:
             cout << "\n==========================================";
             cout << "\n            ADD NEW TRAIN";
             cout << "\n==========================================";
-
             trains[totalTrains].inputTrainDetails();
-
             totalTrains++;
-
             cout << "\nTrain record added successfully!";
         }
         else
@@ -232,8 +194,6 @@ public:
             cout << "\nTrain record limit reached!";
         }
     }
-
-    // Display All Trains
 
     void displayAllTrains()
     {
@@ -250,13 +210,10 @@ public:
             for (int i = 0; i < totalTrains; i++)
             {
                 cout << "\nTrain " << i + 1 << " Details:";
-
                 trains[i].displayTrainDetails();
             }
         }
     }
-
-    // Search Train By Number
 
     void searchTrainByNumber(int number)
     {
@@ -269,11 +226,8 @@ public:
                 cout << "\n==========================================";
                 cout << "\n             TRAIN FOUND";
                 cout << "\n==========================================";
-
                 trains[i].displayTrainDetails();
-
                 found = 1;
-
                 break;
             }
         }
@@ -286,12 +240,9 @@ public:
     }
 };
 
-// Main Function
-
 int main()
 {
     RailwaySystem railway;
-
     int choice;
     int number;
 
@@ -314,30 +265,18 @@ int main()
         case 1:
 
             railway.addTrain();
-
             break;
-
         case 2:
-
             railway.displayAllTrains();
-
             break;
-
         case 3:
-
             cout << "\nEnter Train Number to search: ";
             cin >> number;
-
             railway.searchTrainByNumber(number);
-
             break;
-
         case 4:
-
             cout << "\nExiting the system. Goodbye!";
-
             break;
-
         default:
 
             cout << "\nInvalid choice! Please enter 1 to 4.";
