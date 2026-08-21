@@ -19,55 +19,45 @@ public:
     {
         trainNumber = 0;
 
-        trainName[0] = '\0';
-        source[0] = '\0';
-        destination[0] = '\0';
-        trainTime[0] = '\0';
+        trainName[0] = 0;
+        source[0] = 0;
+        destination[0] = 0;
+        trainTime[0] = 0;
 
         trainCount++;
     }
 
     // Parameterized Constructor
     Train(int number, const char name[], const char src[],
-            const char dest[], const char time[])
+          const char dest[], const char time[])
     {
         trainNumber = number;
 
-        int i = 0;
+        int i;
 
-        while (name[i] != '\0')
+        for (i = 0; name[i] != 0 && i < 49; i++)
         {
             trainName[i] = name[i];
-            i++;
         }
-        trainName[i] = '\0';
+        trainName[i] = 0;
 
-        i = 0;
-
-        while (src[i] != '\0')
+        for (i = 0; src[i] != 0 && i < 49; i++)
         {
             source[i] = src[i];
-            i++;
         }
-        source[i] = '\0';
+        source[i] = 0;
 
-        i = 0;
-
-        while (dest[i] != '\0')
+        for (i = 0; dest[i] != 0 && i < 49; i++)
         {
             destination[i] = dest[i];
-            i++;
         }
-        destination[i] = '\0';
+        destination[i] = 0;
 
-        i = 0;
-
-        while (time[i] != '\0')
+        for (i = 0; time[i] != 0 && i < 19; i++)
         {
             trainTime[i] = time[i];
-            i++;
         }
-        trainTime[i] = '\0';
+        trainTime[i] = 0;
 
         trainCount++;
     }
@@ -78,7 +68,8 @@ public:
         trainCount--;
     }
 
-    // Setters
+    // Setter Functions
+
     void setTrainNumber(int number)
     {
         trainNumber = number;
@@ -86,57 +77,54 @@ public:
 
     void setTrainName(const char name[])
     {
-        int i = 0;
+        int i;
 
-        while (name[i] != '\0')
+        for (i = 0; name[i] != 0 && i < 49; i++)
         {
             trainName[i] = name[i];
-            i++;
         }
 
-        trainName[i] = '\0';
+        trainName[i] = 0;
     }
 
     void setSource(const char src[])
     {
-        int i = 0;
+        int i;
 
-        while (src[i] != '\0')
+        for (i = 0; src[i] != 0 && i < 49; i++)
         {
             source[i] = src[i];
-            i++;
         }
 
-        source[i] = '\0';
+        source[i] = 0;
     }
 
     void setDestination(const char dest[])
     {
-        int i = 0;
+        int i;
 
-        while (dest[i] != '\0')
+        for (i = 0; dest[i] != 0 && i < 49; i++)
         {
             destination[i] = dest[i];
-            i++;
         }
 
-        destination[i] = '\0';
+        destination[i] = 0;
     }
 
     void setTrainTime(const char time[])
     {
-        int i = 0;
+        int i;
 
-        while (time[i] != '\0')
+        for (i = 0; time[i] != 0 && i < 19; i++)
         {
             trainTime[i] = time[i];
-            i++;
         }
 
-        trainTime[i] = '\0';
+        trainTime[i] = 0;
     }
 
-    // Getters
+    // Getter Functions
+
     int getTrainNumber()
     {
         return trainNumber;
@@ -163,6 +151,7 @@ public:
     }
 
     // Input Train Details
+
     void inputTrainDetails()
     {
         cout << "\nEnter Train Number: ";
@@ -183,6 +172,7 @@ public:
     }
 
     // Display Train Details
+
     void displayTrainDetails()
     {
         cout << "\nTrain Number : " << trainNumber;
@@ -194,6 +184,7 @@ public:
     }
 
     // Static Function
+
     static int getTrainCount()
     {
         return trainCount;
@@ -201,9 +192,11 @@ public:
 };
 
 // Initialize Static Member
+
 int Train::trainCount = 0;
 
-// RailwaySystem Class
+// Railway System Class
+
 class RailwaySystem
 {
 private:
@@ -212,17 +205,21 @@ private:
 
 public:
     // Constructor
+
     RailwaySystem()
     {
         totalTrains = 0;
     }
 
     // Add Train
+
     void addTrain()
     {
         if (totalTrains < 100)
         {
-            cout << "\n========== Add New Train ==========\n";
+            cout << "\n==========================================";
+            cout << "\n            ADD NEW TRAIN";
+            cout << "\n==========================================";
 
             trains[totalTrains].inputTrainDetails();
 
@@ -230,9 +227,14 @@ public:
 
             cout << "\nTrain record added successfully!";
         }
+        else
+        {
+            cout << "\nTrain record limit reached!";
+        }
     }
 
     // Display All Trains
+
     void displayAllTrains()
     {
         if (totalTrains == 0)
@@ -241,7 +243,9 @@ public:
         }
         else
         {
-            cout << "\n========== All Train Records ==========\n";
+            cout << "\n==========================================";
+            cout << "\n          ALL TRAIN RECORDS";
+            cout << "\n==========================================";
 
             for (int i = 0; i < totalTrains; i++)
             {
@@ -253,6 +257,7 @@ public:
     }
 
     // Search Train By Number
+
     void searchTrainByNumber(int number)
     {
         int found = 0;
@@ -261,11 +266,14 @@ public:
         {
             if (trains[i].getTrainNumber() == number)
             {
-                cout << "\n========== Train Found ==========\n";
+                cout << "\n==========================================";
+                cout << "\n             TRAIN FOUND";
+                cout << "\n==========================================";
 
                 trains[i].displayTrainDetails();
 
                 found = 1;
+
                 break;
             }
         }
@@ -273,10 +281,12 @@ public:
         if (found == 0)
         {
             cout << "\nTrain with number "
-                    << number << " not found!";
+                 << number << " not found!";
         }
     }
 };
+
+// Main Function
 
 int main()
 {
@@ -330,7 +340,7 @@ int main()
 
         default:
 
-            cout << "\nInvalid choice!";
+            cout << "\nInvalid choice! Please enter 1 to 4.";
         }
 
     } while (choice != 4);

@@ -1,16 +1,17 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-class Student{
-    public:
-
-    string fname , lname;
+class Student
+{
+public:
+    string fname, lname;
     int age;
-    
+
 }
 
-int main()
+int
+main()
 {
     Student s1;
     s1.fname = "John";

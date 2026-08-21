@@ -38,7 +38,7 @@ public:
 };
 
 int main()
-{
+{   
     TimeConverter t;
     int choice;
 
