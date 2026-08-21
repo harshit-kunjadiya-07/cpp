@@ -24,7 +24,6 @@ protected:
 public:
     static int totalVehicles;
 
-    // Default Constructor
     Vehicle()
     {
         vehicleID = 0;
@@ -33,7 +32,6 @@ public:
         year = 0;
     }
 
-    // Parameterized Constructor
     Vehicle(int id, string man, string mod, int y)
     {
         vehicleID = id;
@@ -44,12 +42,10 @@ public:
         totalVehicles++;
     }
 
-    // Destructor
     virtual ~Vehicle()
     {
     }
 
-    // Setters
     void setVehicleID(int id)
     {
         vehicleID = id;
@@ -70,7 +66,6 @@ public:
         year = y;
     }
 
-    // Getters
     int getVehicleID()
     {
         return vehicleID;
@@ -97,11 +92,9 @@ public:
     }
 };
 
-// Initialize Static Member
 int Vehicle::totalVehicles = 0;
 
 // ============================================================
-// Car
 // Single Inheritance : Car -> Vehicle
 // ============================================================
 class Car : public Vehicle
@@ -140,7 +133,6 @@ public:
 };
 
 // ============================================================
-// ElectricCar
 // Multilevel Inheritance : ElectricCar -> Car -> Vehicle
 // ============================================================
 class ElectricCar : public Car
@@ -181,7 +173,6 @@ public:
 };
 
 // ============================================================
-// SportsCar
 // Multilevel Inheritance : SportsCar -> ElectricCar -> Car
 // ============================================================
 class SportsCar : public ElectricCar
@@ -223,7 +214,6 @@ public:
 };
 
 // ============================================================
-// Aircraft
 // Base Class for Multiple Inheritance
 // ============================================================
 class Aircraft
@@ -259,7 +249,6 @@ public:
 };
 
 // ============================================================
-// FlyingCar
 // Multiple Inheritance : FlyingCar -> Car + Aircraft
 // ============================================================
 class FlyingCar : public Car, public Aircraft
@@ -286,7 +275,6 @@ public:
 };
 
 // ============================================================
-// Sedan
 // Hierarchical Inheritance : Sedan -> Car
 // ============================================================
 class Sedan : public Car
@@ -311,7 +299,6 @@ public:
 };
 
 // ============================================================
-// SUV
 // Hierarchical Inheritance : SUV -> Car
 // ============================================================
 class SUV : public Car
@@ -363,7 +350,6 @@ public:
         }
     }
 
-    // Add Vehicle
     void addVehicle()
     {
         int choice;
@@ -390,7 +376,6 @@ public:
         cout << "\nEnter Vehicle ID   : ";
         cin >> id;
 
-        // Check duplicate ID
         for (int i = 0; i < count; i++)
         {
             if (vehicles[i]->getVehicleID() == id)
@@ -503,7 +488,6 @@ public:
         }
     }
 
-    // Display All Vehicles
     void displayAllVehicles()
     {
         if (count == 0)
@@ -528,7 +512,6 @@ public:
         cout << "========================================\n";
     }
 
-    // Search Vehicle By ID
     void searchVehicle()
     {
         int id;
