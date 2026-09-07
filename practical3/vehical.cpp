@@ -187,7 +187,7 @@ public:
     }
 
     SportsCar(int id, string man, string mod, int y,
-              string fuel, float battery, int speed)
+                string fuel, float battery, int speed)
         : ElectricCar(id, man, mod, y, fuel, battery)
     {
         topSpeed = speed;
@@ -258,10 +258,8 @@ public:
     {
     }
 
-    FlyingCar(int id, string man, string mod, int y,
-              string fuel, int range)
-        : Car(id, man, mod, y, fuel),
-          Aircraft(range)
+    FlyingCar(int id, string man, string mod, int y,string fuel, int range)
+        : Car(id, man, mod, y, fuel),Aircraft(range)
     {
     }
 
@@ -327,7 +325,7 @@ public:
 // ============================================================
 class VehicleRegistry
 {
-private:
+private: 
     Vehicle *vehicles[50];
     int count;
 
@@ -345,7 +343,7 @@ public:
     ~VehicleRegistry()
     {
         for (int i = 0; i < count; i++)
-        {
+        { 
             delete vehicles[i];
         }
     }

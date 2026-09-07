@@ -151,6 +151,7 @@ public:
 };
 
 // Magazine Class
+
 class Magazine : public LibraryItem
 {
 public:
@@ -311,7 +312,7 @@ int main()
                     for (i = 0; i < itemCount; i++)
                     {
                         cout << "\nItem Number: "
-                                << i + 1 << endl;
+                             << i + 1 << endl;
 
                         items[i]->displayDetails();
                     }
@@ -351,7 +352,7 @@ int main()
             else if (choice == 7)
             {
                 cout << "\nThank you for using "
-                        << "Library Management System.\n";
+                     << "Library Management System.\n";
             }
 
             else
