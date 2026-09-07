@@ -4,7 +4,6 @@ using namespace std;
 class Vehicle
 {
 public:
-    // Pure virtual functions
     virtual void startEngine() = 0;
     virtual void drive() = 0;
 

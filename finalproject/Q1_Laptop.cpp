@@ -10,7 +10,6 @@ private:
     string processor;
 
 public:
-    // Parameterized constructor
     Laptop(string n, double p, string pro)
     {
         name = n;
